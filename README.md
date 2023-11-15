@@ -1,7 +1,7 @@
 # EntityFrameworkWebAPI
 
 ## How to run this ??
-### (For Windows/VisualStudio) Open Package Manager Console 
+### (For Windows/VisualStudio/VisualStudioForMac) Open Package Manager Console 
 #### * run
 ```bash
 Update-Database
