@@ -13,3 +13,5 @@ Update-Database
 ```bash
 dotnet ef database update
 ```
+### In case of error applying database update:
+#### Delete all migrations in the Migrations folder and run the applying db command again.
