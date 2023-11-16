@@ -12,6 +12,7 @@
         public string? Director { get; set; }
         public DateTime? ReleaseDate { get; set; }
         public string? Description { get; set; }
+        public decimal? SeatPrice { get; set; } = 40000;
         // Other properties related to movies
         public IList<Show>? Shows { get; set; }
     }
