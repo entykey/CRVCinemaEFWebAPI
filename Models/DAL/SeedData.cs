@@ -35,6 +35,13 @@
                         roleManager.CreateAsync(adminRole).Wait();
                     }
 
+                    // Check if the "Staff" role exists, and create it if not
+                    if (!roleManager.RoleExistsAsync("Staff").Result)
+                    {
+                        var staffRole = new IdentityRole("Staff");
+                        roleManager.CreateAsync(staffRole).Wait();
+                    }
+
                     // Create the default admin user
                     var adminUser = new User
                     {
@@ -53,6 +60,26 @@
                     {
                         // Assign the "Admin" role to the admin user
                         userManager.AddToRoleAsync(adminUser, "Admin").Wait();
+                    }
+
+                    // Create the staff user
+                    var staffUser = new User
+                    {
+                        UserName = "staff01",
+                        Email = "staff@example.com",
+                        FullName = "Nhân viên",
+                        DateJoined = DateTimeOffset.Now,
+                        Country = "Vietnam",
+                        // Add other properties as needed
+                    };
+
+                    // Create the admin user with the default password "Abc@123"
+                    var staffAccountresult = userManager.CreateAsync(staffUser, "Abc@123").Result;
+
+                    if (staffAccountresult.Succeeded)
+                    {
+                        // Assign the "Admin" role to the admin user
+                        userManager.AddToRoleAsync(adminUser, "Staff").Wait();
                     }
 
                     // Save changes to the database

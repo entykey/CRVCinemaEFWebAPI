@@ -13,5 +13,6 @@
 
         // Navigation property
         public virtual Show? Show { get; set; }
+        public List<OrderedItem>? OrderedItems { get; set; }
     }
 }

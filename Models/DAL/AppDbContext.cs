@@ -31,14 +31,14 @@
             #endregion
 
 
-            #region Ticket - FoodDrink's (n-n) relationship:
+            #region Booking - FoodDrink's (n-n) relationship:
             modelBuilder.Entity<OrderedItem>()
-                .HasKey(rr => new { rr.TicketId, rr.FoodDrinkId });
+                .HasKey(rr => new { rr.BookingId, rr.FoodDrinkId });
 
             modelBuilder.Entity<OrderedItem>()
-                .HasOne(rr => rr.Ticket)
+                .HasOne(rr => rr.Booking)
                 .WithMany(r => r.OrderedItems)
-                .HasForeignKey(rr => rr.TicketId)
+                .HasForeignKey(rr => rr.BookingId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<OrderedItem>()
@@ -68,7 +68,7 @@
         public DbSet<User> Users { get; set; } // "Users" will be the name of SQL table
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Show> Shows { get; set; }
-        public DbSet<Ticket> Tickets { get; set; }
+        //public DbSet<Ticket> Tickets { get; set; }
         public DbSet<FoodDrink> FoodDrinks { get; set; }
         public DbSet<OrderedItem> OrderedItems { get; set; }
         public DbSet<Booking> Bookings { get; set; }
