@@ -13,5 +13,7 @@ Update-Database
 ```bash
 dotnet ef database update
 ```
+### In case you dont have .NET 7 runtime sdk installed, follow this link: https://dotnet.microsoft.com/en-us/download/dotnet/7.0   (pick .NET 7 Runtime)
+#### install the runtime to run the API on VSCode
 ### In case of ERROR applying database update:
 #### Delete all migrations in the Migrations folder and run the applying db command again.
